@@ -30,6 +30,23 @@ h1 {
     animation: ani3 6s linear infinite;
 }
 
+#imagePreview, #imagePreview img {
+    display:block;
+    position: relative;
+    width: 300px;
+    height: 300px;
+    border-radius: 0% 0% 0% 0% / 0% 0% 0% 0% ;
+    color: white;
+    box-shadow: 5px 5px 5px 5px rgba(0,0,0,.15);
+    transition: all .4s ease;
+    margin: 50px auto 0px auto;
+    left: 28px;
+}
+
+#imagePreview img:hover {
+    box-shadow: 20px 20px 20px 20px rgba(0,0,0,.25);
+  }
+
 .txt-rotate {
     color: #8094d3;
     opacity: 0;
@@ -41,9 +58,10 @@ h1 {
 
 #buttonDiv {
     align-items: center;
-    position: relative;
+    position: fixed;
     display: grid;
-    top: 350px;
+    top: 53%;
+    left: 49.1%;
 }
 
 #imageDrop {
@@ -51,7 +69,7 @@ h1 {
     height: 600px;
     position: absolute;
     color: #2b2c39;
-    left: 17%;
+    left: 20%;
     top: 1%;
     background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOTc0IiBoZWlnaHQ9IjYxMyIgdmlld0JveD0iMCAwIDk3NCA2MTMiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxjaXJjbGUgb3BhY2l0eT0iMC4yIiBjeD0iNjI0IiBjeT0iMzI5IiByPSI0NTMuNSIgc3Ryb2tlPSIjMkIyQzM5Ii8+CjxjaXJjbGUgb3BhY2l0eT0iMC4yIiBjeD0iNjIzLjUiIGN5PSIzMjkuNSIgcj0iNjIzIiBzdHJva2U9IiMyQjJDMzkiLz4KPGNpcmNsZSBvcGFjaXR5PSIwLjUiIGN4PSI2MjguNSIgY3k9IjMzOC41IiByPSIyNTkiIHN0cm9rZT0iIzJCMkMzOSIvPgo8Y2lyY2xlIG9wYWNpdHk9IjAuNSIgY3g9IjYyNCIgY3k9IjMyOSIgcj0iMzMxLjUiIHN0cm9rZT0iIzJCMkMzOSIvPgo8Y2lyY2xlIGN4PSI2MjguNSIgY3k9IjMzOC41IiByPSIxOTciIHN0cm9rZT0iIzJCMkMzOSIvPgo8Y2lyY2xlIGN4PSI2MjguNSIgY3k9IjM0NC41IiByPSIxMjciIHN0cm9rZT0iIzJCMkMzOSIvPgo8L3N2Zz4K);
 }

@@ -7,25 +7,23 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class ImproveQualityComponent implements OnInit {
+  url: any = null;
 
   constructor() { }
 
-  changingText: string = 'Quality';
-
   ngOnInit(): void {
-    setTimeout(() => {
-      this.changingText = 'Resolution';
-    }, 1000);
+    
   }
 
-  onFileSelected() {
-    const inputNode: any = document.querySelector('#file');
-    if (typeof (FileReader) !== 'undefined') {
-      const reader = new FileReader();
-      reader.onload = (e: any) => {
-        // this.srcResult = e.target.result;
-      };
-      reader.readAsArrayBuffer(inputNode.files[0]);
+  onFileSelected(event: any) {
+    console.log(event.target);
+    
+    if (event.target.files) {
+      let reader = new FileReader();
+      reader.readAsDataURL(event.target.files[0]);
+      reader.onload = (event: any) => {
+        this.url = event.target.result;
+      }
     }
   }
 }
