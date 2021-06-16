@@ -1,2 +1,12 @@
-<button type="button" mat-raised-button (click)="fileInput.click()">Choose File</button>
-<input hidden (change)="onFileSelected()" #fileInput type="file" id="file" accept="image/x-png,image/gif,image/jpeg" >
+<div id="main"> 
+    <h1>Upscale your images using the power of AI. Better 
+        <div id="text1" class="txt-rotate">Quality.</div>
+        <div id="text2" class="txt-rotate">Resolution.</div>
+        <div id="text3" class="txt-rotate">Contrast.</div>
+    </h1>
+    <div id="imageDrop"></div>
+    <div id="buttonDiv" style="align-items: center; display: grid;">
+        <button id="fileButton" type="button" mat-raised-button (click)="fileInput.click()">Choose File</button>
+        <input hidden (change)="onFileSelected()" #fileInput type="file" id="fileInput" accept="image/x-png,image/gif,image/jpeg" >
+    </div>
+</div>
