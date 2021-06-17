@@ -8,8 +8,26 @@
     <div *ngIf="url" id="imagePreview">
         <img [src]="url" alt=" ">
     </div>
+    <!-- <div style="position: relative;">
+        <img src="src\assets\images\upload.png" alt=" ">
+    </div> -->
     <div id="buttonDiv" style="align-items: center; display: grid;">
         <button id="fileButton" type="button" mat-raised-button (click)="fileInput.click()">Choose File</button>
         <input hidden (change)="onFileSelected($event)" #fileInput type="file" id="fileInput" accept="image/x-png,image/gif,image/jpeg" >
+    </div>
+
+    <div id="info">
+        <div>
+            AI Upscaling
+        </div>
+        <div>
+            Enhanced Image
+        </div>
+        <div>
+            Toning and Colour Enhancement 
+        </div>
+        <div>
+            Noise Reduction
+        </div>
     </div>
 </div>
