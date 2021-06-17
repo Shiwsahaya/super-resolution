@@ -155,7 +155,7 @@ h1 {
     background-repeat: no-repeat;
     content: "";
     height: 66px;
-    left: 450px;
+    left: 30%;
     position: absolute;
     top: 0;
     width: 66px;
@@ -165,7 +165,7 @@ h1 {
     background-repeat: no-repeat;
     content: "";
     height: 32px;
-    left: 467px;
+    left: 31%;
     position: absolute;
     top: 17px;
     width: 32px;
@@ -177,7 +177,7 @@ h1 {
     background-repeat: no-repeat;
     content: "";
     height: 66px;
-    left: 790px;
+    left: 53%;
     position: absolute;
     top: 0;
     width: 66px;
@@ -187,7 +187,7 @@ h1 {
     background-repeat: no-repeat;
     content: "";
     height: 32px;
-    left: 808px;
+    left: 54%;
     position: absolute;
     top: 17px;
     width: 32px;
