@@ -8,17 +8,22 @@
     <div *ngIf="url" id="imagePreview" style="margin-left: 10px; margin-right: auto;">
         <img [src]="url" alt=" ">
     </div>
-    
+
     <div *ngIf="scaledImageDiv" id="scaleImagePreview" style="margin-left: 40%; margin-top: -18.5%;">
-        <mat-progress-bar mode="indeterminate" *ngIf="progressBar"  style="margin-top: 20%;"></mat-progress-bar>
+        <mat-progress-bar mode="indeterminate" *ngIf="progressBar" style="margin-top: 20%;"></mat-progress-bar>
         <img [src]="scaledImage" alt=" " *ngIf="scaledImage">
     </div>
-    
+
     <div id="buttonDiv" style="margin-left: -44%; display: grid;">
-        <button id="fileButton" type="button" mat-raised-button (click)="fileInput.click()" style="margin-left: -34px; margin-top: 15px; width: 250px;">Upload Image</button>
-        <button *ngIf="upscaleButton" id="fileButton" type="button" mat-raised-button (click)="upscaleImage()" style="margin-left:-34px; margin-top: 5px; width: 250px;">Upscale</button>
+        <button id="fileButton" type="button" mat-raised-button (click)="fileInput.click()"
+            style="margin-left: -34px; margin-top: 15px; width: 250px;">Upload Image</button>
+        <button *ngIf="upscaleButton" id="fileButton" type="button" mat-raised-button (click)="upscaleImage()"
+            style="margin-left:-34px; margin-top: 5px; width: 250px;">Upscale</button>
         <input hidden (change)="onFileSelected($event)" #fileInput type="file" id="fileInput"
             accept="image/x-png,image/gif,image/jpeg">
+        <button *ngIf="scaledImage" id="fileButton" type="button" mat-raised-button (click)="downloadFile()"
+            style="margin-left: 620px; margin-top: 88px; width: 250px;">Download Image</button>
+
     </div>
 
     <!-- <div id="info">

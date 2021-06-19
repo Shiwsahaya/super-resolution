@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 import axios from 'axios';
 import * as deepai from 'deepai';
 @Component({
@@ -11,7 +11,7 @@ import * as deepai from 'deepai';
 
 export class ImproveQualityComponent implements OnInit {
   url: any = null;
-  scaledImage: any = '';  
+  scaledImage: any = '';
   progressBar: boolean = false;
   url1: any = null;
   chooseButton: boolean = true;
@@ -20,11 +20,10 @@ export class ImproveQualityComponent implements OnInit {
 
   constructor(
     private http: HttpClient,
-    private matProgressBarModule: MatProgressBarModule
-  ) { }
+    private matProgressBarModule: MatProgressBarModule) { }
 
   ngOnInit(): void {
-    
+
   }
 
   upscaleImage() {
@@ -35,7 +34,7 @@ export class ImproveQualityComponent implements OnInit {
     deepai.setApiKey('990cd8d3-5d3c-4b66-a30f-7fbb73c71049');
     const formData = new FormData();
     formData.append('image', this.url);
-    this.http.post<any>('https://api.deepai.org/api/torch-srgan', formData, {headers: {'api-key' : '990cd8d3-5d3c-4b66-a30f-7fbb73c71049'}}).subscribe(
+    this.http.post<any>('https://api.deepai.org/api/torch-srgan', formData, { headers: { 'api-key': '990cd8d3-5d3c-4b66-a30f-7fbb73c71049' } }).subscribe(
       (res) => {
         console.log(res);
         this.scaledImage = res.output_url
@@ -46,7 +45,7 @@ export class ImproveQualityComponent implements OnInit {
         console.log(err);
         this.chooseButton = true;
       }
-    );  
+    );
   }
 
   getURL() {
@@ -59,6 +58,7 @@ export class ImproveQualityComponent implements OnInit {
       this.upscaleButton = true;
       this.progressBar = false;
       this.scaledImageDiv = false;
+      this.scaledImage = '';
       let reader = new FileReader();
       reader.readAsDataURL(event.target.files[0]);
       reader.onload = (event: any) => {
@@ -71,5 +71,9 @@ export class ImproveQualityComponent implements OnInit {
       //   }
       // });
     }
+  }
+
+  downloadFile() {
+    
   }
 }
