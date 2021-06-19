@@ -56,6 +56,8 @@ export class ImproveQualityComponent implements OnInit {
     console.log(event, ' event');
     
     if (event.target.files) {
+      console.log(event.target.files);
+      
       this.chooseButton = false;
       this.upscaleButton = true;
       this.progressBar = false;
@@ -80,7 +82,7 @@ export class ImproveQualityComponent implements OnInit {
     this.http.get(this.scaledImage, { responseType: 'blob' }).subscribe(val => {
       console.log(val);
       const url = URL.createObjectURL(val);
-      this.downloadUrl(url, 'image.jpg');
+      this.downloadUrl(url, 'scaled-image.jpg');
       URL.revokeObjectURL(url);
     });
   }
