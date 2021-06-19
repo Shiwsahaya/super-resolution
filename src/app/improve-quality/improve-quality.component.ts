@@ -53,6 +53,8 @@ export class ImproveQualityComponent implements OnInit {
   }
 
   async onFileSelected(event: any) {
+    console.log(event, ' event');
+    
     if (event.target.files) {
       this.chooseButton = false;
       this.upscaleButton = true;
@@ -74,6 +76,21 @@ export class ImproveQualityComponent implements OnInit {
   }
 
   downloadFile() {
-    
+    console.log(this.scaledImage, ' url');
+    this.http.get(this.scaledImage, { responseType: 'blob' }).subscribe(val => {
+      console.log(val);
+      const url = URL.createObjectURL(val);
+      this.downloadUrl(url, 'image.jpg');
+      URL.revokeObjectURL(url);
+    });
   }
+  downloadUrl(url: string, fileName: string) {
+    const a: any = document.createElement('a');
+    a.href = url;
+    a.download = fileName;
+    document.body.appendChild(a);
+    a.style = 'display: none';
+    a.click();
+    a.remove();
+  };
 }
