@@ -1,8 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import axios from 'axios';
-import { UploadService } from '../upload-image-service';
-
+import * as deepai from 'deepai';
 @Component({
   selector: 'app-improve-quality',
   templateUrl: './improve-quality.component.html',
@@ -11,11 +10,32 @@ import { UploadService } from '../upload-image-service';
 
 export class ImproveQualityComponent implements OnInit {
   url: any = null;
-  
-  constructor() { }
+  scaledImage: any = '';  
+
+  constructor(
+    private http: HttpClient,
+  ) { }
 
   ngOnInit(): void {
     
+  }
+
+  upscaleImage() {
+    console.log('enter in upscale');
+    deepai.setApiKey('990cd8d3-5d3c-4b66-a30f-7fbb73c71049');
+    const formData = new FormData();
+    formData.append('image', this.url);
+    this.http.post<any>('https://api.deepai.org/api/torch-srgan', formData, {headers: {'api-key' : '990cd8d3-5d3c-4b66-a30f-7fbb73c71049'}}).subscribe(
+      (res) => {
+        console.log(res);
+        this.scaledImage = res.output_url
+      },
+      (err) => console.log(err)
+    );  
+  }
+
+  getURL() {
+
   }
 
   async onFileSelected(event: any) {
