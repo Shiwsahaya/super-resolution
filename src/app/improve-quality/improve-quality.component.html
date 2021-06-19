@@ -9,7 +9,7 @@
         <img [src]="url" alt=" ">
     </div>
     
-    <div id="scaleImagePreview" style="margin-left: 40%; margin-top: -18.5%;">
+    <div *ngIf="scaledImageDiv" id="scaleImagePreview" style="margin-left: 40%; margin-top: -18.5%;">
         <mat-progress-bar mode="indeterminate" *ngIf="progressBar"  style="margin-top: 20%;"></mat-progress-bar>
         <img [src]="scaledImage" alt=" " *ngIf="scaledImage">
     </div>
@@ -21,7 +21,7 @@
             accept="image/x-png,image/gif,image/jpeg">
     </div>
 
-    <div id="info">
+    <!-- <div id="info">
         <div>
             AI Upscaling
         </div>
@@ -34,5 +34,5 @@
         <div>
             Noise Reduction
         </div>
-    </div>
+    </div> -->
 </div>
