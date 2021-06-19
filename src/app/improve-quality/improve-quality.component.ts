@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 import axios from 'axios';
 import * as deepai from 'deepai';
 @Component({
@@ -11,9 +12,14 @@ import * as deepai from 'deepai';
 export class ImproveQualityComponent implements OnInit {
   url: any = null;
   scaledImage: any = '';  
+  progressBar: boolean = true;
+  url1: any = null;
+  chooseButton: boolean = true;
+  upscaleButton: boolean = false;
 
   constructor(
     private http: HttpClient,
+    private matProgressBarModule: MatProgressBarModule
   ) { }
 
   ngOnInit(): void {
@@ -21,6 +27,7 @@ export class ImproveQualityComponent implements OnInit {
   }
 
   upscaleImage() {
+    this.upscaleButton = false;
     console.log('enter in upscale');
     deepai.setApiKey('990cd8d3-5d3c-4b66-a30f-7fbb73c71049');
     const formData = new FormData();
@@ -29,8 +36,12 @@ export class ImproveQualityComponent implements OnInit {
       (res) => {
         console.log(res);
         this.scaledImage = res.output_url
+        this.chooseButton = true;
       },
-      (err) => console.log(err)
+      (err) => {
+        console.log(err);
+        this.chooseButton = true;
+      }
     );  
   }
 
@@ -40,17 +51,19 @@ export class ImproveQualityComponent implements OnInit {
 
   async onFileSelected(event: any) {
     if (event.target.files) {
+      this.chooseButton = false;
+      this.upscaleButton = true;
       let reader = new FileReader();
       reader.readAsDataURL(event.target.files[0]);
       reader.onload = (event: any) => {
         this.url = event.target.result;
+        // this.upscaleImage();
       }
-
-      axios.put('', this.url, {
-        headers: {
-          'Content-Type': this.url.type
-        }
-      });
+      // axios.put('', this.url, {
+      //   headers: {
+      //     'Content-Type': this.url.type
+      //   }
+      // });
     }
   }
 }

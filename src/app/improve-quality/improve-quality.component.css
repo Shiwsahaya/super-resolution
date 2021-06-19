@@ -34,8 +34,21 @@ h1 {
 #imagePreview, #imagePreview img {
     display:block;
     position: relative;
-    width: 300px;
-    height: 300px;
+    width: 200px;
+    height: 200px;
+    border-radius: 0% 0% 0% 0% / 0% 0% 0% 0% ;
+    color: white;
+    box-shadow: 5px 5px 5px 5px rgba(0,0,0,.15);
+    transition: all .4s ease;
+    margin: 50px auto 0px auto;
+    left: 28px;
+}
+
+#scaleImagePreview, #scaleImagePreview img {
+    display:block;
+    position: relative;
+    width: 350px;
+    height: 350px;
     border-radius: 0% 0% 0% 0% / 0% 0% 0% 0% ;
     color: white;
     box-shadow: 5px 5px 5px 5px rgba(0,0,0,.15);
