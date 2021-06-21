@@ -13,7 +13,6 @@ export class ImproveQualityComponent implements OnInit {
   url: any = null;
   scaledImage: any = '';
   progressBar: boolean = false;
-  url1: any = null;
   chooseButton: boolean = true;
   upscaleButton: boolean = false;
   scaledImageDiv: boolean = false;
